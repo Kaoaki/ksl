@@ -1,0 +1,10 @@
+version: 2
+
+updates:
+  - package-ecosystem: "gradle"
+    directory: "/"
+    labels:
+      - "dependencies: java"
+    open-pull-requests-limit: 10
+    schedule:
+      interval: "daily"
