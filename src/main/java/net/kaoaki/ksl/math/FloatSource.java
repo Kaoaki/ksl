@@ -25,6 +25,7 @@ package net.kaoaki.ksl.math;
 
 import java.util.Random;
 import net.kaoaki.ksl.random.RandomSource;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Something that can provide a {@code float}.
@@ -41,7 +42,7 @@ public interface FloatSource {
    * @since 1.0.0
    */
   @SuppressWarnings("checkstyle:MethodName") // intentionally prefixed
-  default float getFloat(final RandomSource random) {
+  default float getFloat(final @NonNull RandomSource random) {
     return this.getFloat(random.random());
   }
 
@@ -53,5 +54,5 @@ public interface FloatSource {
    * @since 1.0.0
    */
   @SuppressWarnings("checkstyle:MethodName") // intentionally prefixed
-  float getFloat(final Random random);
+  float getFloat(final @NonNull Random random);
 }

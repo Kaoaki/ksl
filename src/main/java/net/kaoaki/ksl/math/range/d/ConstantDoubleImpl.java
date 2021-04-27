@@ -51,6 +51,11 @@ final class ConstantDoubleImpl implements ConstantDouble {
   }
 
   @Override
+  public String toString() {
+    return "ConstantDouble[value=" + this.value + "]";
+  }
+
+  @Override
   public boolean equals(final @Nullable Object other) {
     if(this == other) return true;
     if(other == null || this.getClass() != other.getClass()) return false;
@@ -61,10 +66,5 @@ final class ConstantDoubleImpl implements ConstantDouble {
   @Override
   public int hashCode() {
     return Double.hashCode(this.value);
-  }
-
-  @Override
-  public @NonNull String toString() {
-    return "ConstantDouble.constantly(" + this.value + ")";
   }
 }

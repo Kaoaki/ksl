@@ -51,6 +51,11 @@ final class ConstantFloatImpl implements ConstantFloat {
   }
 
   @Override
+  public String toString() {
+    return "ConstantFloat[value=" + this.value + "]";
+  }
+
+  @Override
   public boolean equals(final @Nullable Object other) {
     if(this == other) return true;
     if(other == null || this.getClass() != other.getClass()) return false;

@@ -46,17 +46,17 @@ public interface DoubleRange extends DoublePredicate, DoubleSource {
   }
 
   /**
-   * Gets the minimum value.
+   * Gets the minimum value, inclusive.
    *
-   * @return the minimum value
+   * @return the minimum value, inclusive
    * @since 1.0.0
    */
   double min();
 
   /**
-   * Gets the maximum value.
+   * Gets the maximum value, inclusive.
    *
-   * @return the maximum value
+   * @return the maximum value, inclusive
    * @since 1.0.0
    */
   double max();

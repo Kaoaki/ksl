@@ -48,13 +48,9 @@ public final class Types {
    * @since 1.0.0
    */
   public static <T> @NonNull Stream<Class<? super T>> ancestors(final @NonNull Class<T> type) {
-    return StreamSupport.stream(
-      Spliterators.spliterator(
-        new AncestorsIterator<>(type),
-        Long.MAX_VALUE,
-        Spliterator.DISTINCT | Spliterator.NONNULL | Spliterator.IMMUTABLE
-      ),
-      false
-    );
+    return StreamSupport.stream(Spliterators.spliteratorUnknownSize(
+      new AncestorsIterator<>(type),
+      Spliterator.DISTINCT | Spliterator.ORDERED | Spliterator.NONNULL | Spliterator.IMMUTABLE
+    ), false);
   }
 }

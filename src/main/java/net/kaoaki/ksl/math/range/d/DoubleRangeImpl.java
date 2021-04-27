@@ -58,6 +58,11 @@ final class DoubleRangeImpl implements DoubleRange {
   }
 
   @Override
+  public String toString() {
+    return "DoubleRange[min=" + this.min + ", max=" + this.max + "]";
+  }
+
+  @Override
   public boolean equals(final @Nullable Object other) {
     if(this == other) return true;
     if(other == null || this.getClass() != other.getClass()) return false;

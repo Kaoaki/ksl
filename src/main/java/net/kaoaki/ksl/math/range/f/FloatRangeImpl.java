@@ -58,6 +58,11 @@ final class FloatRangeImpl implements FloatRange {
   }
 
   @Override
+  public String toString() {
+    return "FloatRange[min=" + this.min + ", max=" + this.max + "]";
+  }
+
+  @Override
   public boolean equals(final @Nullable Object other) {
     if(this == other) return true;
     if(other == null || this.getClass() != other.getClass()) return false;

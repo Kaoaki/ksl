@@ -46,17 +46,17 @@ public interface IntRange extends IntPredicate, IntSource {
   }
 
   /**
-   * Gets the minimum value.
+   * Gets the minimum value, inclusive.
    *
-   * @return the minimum value
+   * @return the minimum value, inclusive
    * @since 1.0.0
    */
   int min();
 
   /**
-   * Gets the maximum value.
+   * Gets the maximum value, inclusive.
    *
-   * @return the maximum value
+   * @return the maximum value, inclusive
    * @since 1.0.0
    */
   int max();

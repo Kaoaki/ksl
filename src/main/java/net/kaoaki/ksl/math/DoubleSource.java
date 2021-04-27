@@ -25,6 +25,7 @@ package net.kaoaki.ksl.math;
 
 import java.util.Random;
 import net.kaoaki.ksl.random.RandomSource;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
 /**
  * Something that can provide a {@code double}.
@@ -41,7 +42,7 @@ public interface DoubleSource {
    * @since 1.0.0
    */
   @SuppressWarnings("checkstyle:MethodName") // intentionally prefixed
-  default double getDouble(final RandomSource random) {
+  default double getDouble(final @NonNull RandomSource random) {
     return this.getDouble(random.random());
   }
 
@@ -53,5 +54,5 @@ public interface DoubleSource {
    * @since 1.0.0
    */
   @SuppressWarnings("checkstyle:MethodName") // intentionally prefixed
-  double getDouble(final Random random);
+  double getDouble(final @NonNull Random random);
 }
