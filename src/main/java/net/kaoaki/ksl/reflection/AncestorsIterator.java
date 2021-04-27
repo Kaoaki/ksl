@@ -23,38 +23,49 @@
  */
 package net.kaoaki.ksl.reflection;
 
-import java.lang.reflect.Type;
-import java.util.Spliterator;
-import java.util.Spliterators;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
-import org.checkerframework.checker.nullness.qual.NonNull;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
-/**
- * A collection of utilities for working with {@link Type}s.
- *
- * @since 1.0.0
- */
-public final class Types {
-  private Types() {
+final class AncestorsIterator<T> implements Iterator<Class<? super T>> {
+  private final Deque<Class<? super T>> types = new ArrayDeque<>();
+  private final Set<Class<? super T>> seen = new HashSet<>();
+
+  AncestorsIterator(final Class<? super T> type) {
+    this.types.add(type);
   }
 
-  /**
-   * Gets a stream of all ancestors of {@code type}.
-   *
-   * @param type the source type
-   * @param <T> the class type
-   * @return a stream of ancestors
-   * @since 1.0.0
-   */
-  public static <T> @NonNull Stream<Class<? super T>> ancestors(final @NonNull Class<T> type) {
-    return StreamSupport.stream(
-      Spliterators.spliterator(
-        new AncestorsIterator<>(type),
-        Long.MAX_VALUE,
-        Spliterator.DISTINCT | Spliterator.NONNULL | Spliterator.IMMUTABLE
-      ),
-      false
-    );
+  @Override
+  public boolean hasNext() {
+    return !this.types.isEmpty();
+  }
+
+  @Override
+  public Class<? super T> next() {
+    final Class<? super T> type = this.types.remove();
+    this.add(type.getSuperclass());
+    this.addAll(type.getInterfaces());
+    return type;
+  }
+
+  @SuppressWarnings("unchecked")
+  private void addAll(final Class<?>... types) {
+    final int length = types.length;
+    if(length > 0) {
+      for(int i = 0; i < length; i++) {
+        this.add((Class<? super T>) types[i]);
+      }
+    }
+  }
+
+  private void add(final @Nullable Class<? super T> type) {
+    if(type != null) {
+      if(this.seen.add(type)) {
+        this.types.add(type);
+      }
+    }
   }
 }

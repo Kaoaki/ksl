@@ -111,7 +111,7 @@ public final class Mth {
    * @since 1.0.0
    */
   public static boolean between(final double value, final double min, final double max) {
-    return value >= min && value <= max;
+    return min <= value && value <= max;
   }
 
   /**
@@ -124,7 +124,7 @@ public final class Mth {
    * @since 1.0.0
    */
   public static boolean between(final float value, final float min, final float max) {
-    return value >= min && value <= max;
+    return min <= value && value <= max;
   }
 
   /**
@@ -137,7 +137,7 @@ public final class Mth {
    * @since 1.0.0
    */
   public static boolean between(final int value, final int min, final int max) {
-    return value >= min && value <= max;
+    return min <= value && value <= max;
   }
 
   /**
@@ -150,7 +150,7 @@ public final class Mth {
    * @since 1.0.0
    */
   public static boolean between(final long value, final long min, final long max) {
-    return value >= min && value <= max;
+    return min <= value && value <= max;
   }
 
   // todo(kashike): extract logic to common method, add new interface for getters
@@ -159,8 +159,8 @@ public final class Mth {
    * Gets a random value between {@code min} and {@code max}.
    *
    * @param random the random source
-   * @param min the minimum value
-   * @param max the maximum value
+   * @param min the minimum value, inclusive
+   * @param max the maximum value, inclusive
    * @return a value
    * @since 1.0.0
    */
@@ -172,8 +172,8 @@ public final class Mth {
    * Gets a random value between {@code min} and {@code max}.
    *
    * @param random the random source
-   * @param min the minimum value
-   * @param max the maximum value
+   * @param min the minimum value, inclusive
+   * @param max the maximum value, inclusive
    * @return a value
    * @since 1.0.0
    */
@@ -185,8 +185,8 @@ public final class Mth {
    * Gets a random value between {@code min} and {@code max}.
    *
    * @param random the random source
-   * @param min the minimum value
-   * @param max the maximum value
+   * @param min the minimum value, inclusive
+   * @param max the maximum value, inclusive
    * @return a value
    * @since 1.0.0
    */
@@ -228,7 +228,7 @@ public final class Mth {
   }
 
   /**
-   * Tests if {@code a} equals {@code b}.
+   * Tests if {@code a} equals {@code b}, using {@link Double#doubleToLongBits(double)}.
    *
    * @param a the first number
    * @param b the first number
@@ -240,7 +240,7 @@ public final class Mth {
   }
 
   /**
-   * Tests if {@code a} equals {@code b}.
+   * Tests if {@code a} equals {@code b}, using {@link Float#floatToIntBits(float)}.
    *
    * @param a the first number
    * @param b the first number
