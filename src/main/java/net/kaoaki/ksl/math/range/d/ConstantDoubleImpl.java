@@ -29,6 +29,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 final class ConstantDoubleImpl implements ConstantDouble {
+  static final ConstantDouble ZERO = new ConstantDoubleImpl(0d);
   private final double value;
 
   ConstantDoubleImpl(final double value) {

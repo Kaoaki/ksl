@@ -41,6 +41,7 @@ public interface ConstantDouble extends DoublePredicate, DoubleSource {
    * @since 1.0.0
    */
   static @NonNull ConstantDouble constantly(final double value) {
+    if(value == 0d) return ConstantDoubleImpl.ZERO;
     return new ConstantDoubleImpl(value);
   }
 

@@ -41,6 +41,7 @@ public interface ConstantFloat extends FloatSource, Predicate1f {
    * @since 1.0.0
    */
   static @NonNull ConstantFloat constantly(final float value) {
+    if(value == 0f) return ConstantFloatImpl.ZERO;
     return new ConstantFloatImpl(value);
   }
 

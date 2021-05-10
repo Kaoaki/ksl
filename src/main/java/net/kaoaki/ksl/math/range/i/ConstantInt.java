@@ -41,6 +41,7 @@ public interface ConstantInt extends IntPredicate, IntSource {
    * @since 1.0.0
    */
   static @NonNull ConstantInt constantly(final int value) {
+    if(value == 0) return ConstantIntImpl.ZERO;
     return new ConstantIntImpl(value);
   }
 

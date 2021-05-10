@@ -31,9 +31,15 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class ConstantFloatTest {
+  @Test
+  void testConstantZero() {
+    assertSame(ConstantFloatImpl.ZERO, ConstantFloat.constantly(0f));
+  }
+
   @Test
   void testConstant() {
     final ConstantFloat r0 = ConstantFloat.constantly(2f);

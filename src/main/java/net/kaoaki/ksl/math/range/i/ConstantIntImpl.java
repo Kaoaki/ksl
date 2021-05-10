@@ -28,6 +28,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 final class ConstantIntImpl implements ConstantInt {
+  static final ConstantInt ZERO = new ConstantIntImpl(0);
   private final int value;
 
   ConstantIntImpl(final int value) {
