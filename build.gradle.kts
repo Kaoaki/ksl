@@ -54,7 +54,7 @@ dependencies {
   testImplementation("com.google.guava:guava-testlib:30.1.1-jre")
   testImplementation("com.google.truth:truth:1.1.2")
   testImplementation("com.google.truth.extensions:truth-java8-extension:1.1.2")
-  testImplementation(platform("org.junit:junit-bom:5.7.1"))
+  testImplementation(platform("org.junit:junit-bom:5.7.2"))
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-params")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine")
