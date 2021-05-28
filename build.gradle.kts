@@ -53,7 +53,7 @@ dependencies {
   compileOnlyApi("org.checkerframework:checker-qual:3.13.0")
   testImplementation("com.google.guava:guava-testlib:30.1.1-jre")
   testImplementation("com.google.truth:truth:1.1.3")
-  testImplementation("com.google.truth.extensions:truth-java8-extension:1.1.2")
+  testImplementation("com.google.truth.extensions:truth-java8-extension:1.1.3")
   testImplementation(platform("org.junit:junit-bom:5.7.2"))
   testImplementation("org.junit.jupiter:junit-jupiter-api")
   testImplementation("org.junit.jupiter:junit-jupiter-params")
