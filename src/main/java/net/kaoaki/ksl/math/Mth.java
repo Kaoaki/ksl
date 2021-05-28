@@ -195,6 +195,32 @@ public final class Mth {
   }
 
   /**
+   * Linearly interpolates between {@code a} and {@code b} by {@code t}.
+   *
+   * @param t the interpolation value, between {@code 0.0} and {@code 1.0}
+   * @param a the lower bound
+   * @param b the upper bound
+   * @return the interpolated value
+   * @since 1.0.0
+   */
+  public static double lerp(final double t, final double a, final double b) {
+    return a + t * (b - a);
+  }
+
+  /**
+   * Linearly interpolates between {@code a} and {@code b} by {@code t}.
+   *
+   * @param t the interpolation value, between {@code 0.0} and {@code 1.0}
+   * @param a the lower bound
+   * @param b the upper bound
+   * @return the interpolated value
+   * @since 1.0.0
+   */
+  public static float lerp(final float t, final float a, final float b) {
+    return a + t * (b - a);
+  }
+
+  /**
    * Squares {@code n}.
    *
    * @param n the value to square

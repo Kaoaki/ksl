@@ -147,6 +147,40 @@ class MthTest {
   }
 
   @Test
+  void testLerp_double() {
+    assertEquals(0d, Mth.lerp(0d, 0d, 1d));
+    assertEquals(0d, Mth.lerp(0.25d, -10d, 30d));
+    assertEquals(-0.5d, Mth.lerp(0.5d, 0d, -1d));
+    assertEquals(0.5d, Mth.lerp(0.5d, 0d, 1d));
+    assertEquals(-1d, Mth.lerp(1d, 0d, -1d));
+    assertEquals(1d, Mth.lerp(1d, 0d, 1d));
+    assertEquals(5d, Mth.lerp(0.5d, 0d, 10d));
+    assertEquals(17d, Mth.lerp(0.7d, 10d, 20d));
+    assertEquals(-10d, Mth.lerp(0d, -10d, 30d));
+    assertEquals(10d, Mth.lerp(0.50d, -10d, 30d));
+    assertEquals(20d, Mth.lerp(0.75d, -10d, 30d));
+    assertEquals(30d, Mth.lerp(1d, -10d, 30d));
+    assertEquals(50d, Mth.lerp(0.5d, 0d, 100d));
+  }
+
+  @Test
+  void testLerp_float() {
+    assertEquals(0f, Mth.lerp(0f, 0f, 1f));
+    assertEquals(0f, Mth.lerp(0.25f, -10f, 30f));
+    assertEquals(-0.5f, Mth.lerp(0.5f, 0f, -1f));
+    assertEquals(0.5f, Mth.lerp(0.5f, 0f, 1f));
+    assertEquals(-1f, Mth.lerp(1f, 0f, -1f));
+    assertEquals(1f, Mth.lerp(1f, 0f, 1f));
+    assertEquals(5f, Mth.lerp(0.5f, 0f, 10f));
+    assertEquals(17f, Mth.lerp(0.7f, 10f, 20f));
+    assertEquals(-10f, Mth.lerp(0f, -10f, 30f));
+    assertEquals(10f, Mth.lerp(0.50f, -10f, 30f));
+    assertEquals(20f, Mth.lerp(0.75f, -10f, 30f));
+    assertEquals(30f, Mth.lerp(1f, -10f, 30f));
+    assertEquals(50f, Mth.lerp(0.5f, 0f, 100f));
+  }
+
+  @Test
   void testSquared() {
     assertEquals(9d, Mth.square(3d));
     assertEquals(6.25d, Mth.square(2.5d));
