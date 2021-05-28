@@ -1,10 +1,10 @@
 plugins {
-  val indraVersion = "1.3.1"
+  val indraVersion = "2.0.5"
   id("net.kyori.indra") version indraVersion
   id("net.kyori.indra.checkstyle") version indraVersion
   id("net.kyori.indra.license-header") version indraVersion
   id("net.kyori.indra.publishing") version indraVersion
-  id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
+  id("net.kyori.indra.publishing.sonatype") version indraVersion
 }
 
 group = "net.kaoaki"
@@ -13,12 +13,12 @@ description = "Kaoaki Standard Library"
 
 indra {
   javaVersions {
-    target.set(8)
+    target(8)
     testWith(8, 11, 15)
   }
 
   github("Kaoaki", "ksl") {
-    ci = true
+    ci(true)
   }
   mitLicense()
 
@@ -34,13 +34,8 @@ indra {
   }
 }
 
-nexusPublishing {
-  repositories {
-    sonatype {
-      nexusUrl.set(uri("https://s01.oss.sonatype.org/service/local/"))
-      snapshotRepositoryUrl.set(uri("https://s01.oss.sonatype.org/content/repositories/snapshots/"))
-    }
-  }
+indraSonatype {
+  useAlternateSonatypeOSSHost("s01")
 }
 
 repositories {
